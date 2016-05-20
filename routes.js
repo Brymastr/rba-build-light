@@ -22,7 +22,7 @@ module.exports = function() {
     
   router.route('/projects')
     .get(function(req, res) {
-      log.log('debug', projectModule.projects)
+      log.debug(projectModule.projects)
       res.json(projectModule.projects);
     });
         

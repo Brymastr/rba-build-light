@@ -2,3 +2,78 @@
 2016-05-20T21:38:07.422Z info: New project: IntegrationService.Build
 2016-05-20T22:56:59.459Z info: GET: /api/projects
 2016-05-20T22:56:59.464Z debug: []
+2016-05-20T23:23:48.557Z info: Application startup
+2016-05-20T23:23:48.559Z info: server listening on port 9000
+2016-05-20T23:23:54.460Z info: GET: /api/status/IntegrationService.Build/success
+2016-05-20T23:23:54.462Z info: New project: IntegrationService.Build
+2016-05-20T23:23:59.250Z info: Application startup
+2016-05-20T23:23:59.254Z info: server listening on port 9000
+2016-05-20T23:24:02.844Z info: GET: /api/status/IntegrationService.Build/success
+2016-05-20T23:24:02.846Z info: New project: IntegrationService.Build
+2016-05-20T23:24:24.617Z info: server listening on port 9000
+2016-05-20T23:24:49.749Z info: server listening on port 9000
+2016-05-20T23:25:11.619Z info: server listening on port 9000
+2016-05-20T23:25:41.340Z info: server listening on port 9000
+2016-05-20T23:25:58.340Z info: server listening on port 9000
+2016-05-20T23:26:29.509Z info: server listening on port 9000
+2016-05-20T23:26:42.619Z info: server listening on port 9000
+2016-05-20T23:26:53.490Z info: server listening on port 9000
+2016-05-20T23:27:08.075Z info: server listening on port 9000
+2016-05-20T23:27:13.599Z info: server listening on port 9000
+2016-05-20T23:27:34.301Z debug: Application startup
+2016-05-20T23:27:39.127Z debug: Application startup
+2016-05-20T23:27:39.132Z info: server listening on port 9000
+2016-05-20T23:27:57.837Z info: Application startup
+2016-05-20T23:27:57.842Z info: server listening on port 9000
+2016-05-20T23:28:18.890Z debug: debug
+2016-05-20T23:28:18.895Z info: info
+2016-05-20T23:28:18.896Z error: error
+2016-05-20T23:28:18.897Z info: Application startup
+2016-05-20T23:28:18.897Z info: server listening on port 9000
+2016-05-20T23:28:31.428Z info: info
+2016-05-20T23:28:31.434Z error: error
+2016-05-20T23:28:31.435Z info: Application startup
+2016-05-20T23:28:31.435Z info: server listening on port 9000
+2016-05-20T23:28:36.064Z error: error
+2016-05-20T23:28:41.267Z debug: debug
+2016-05-20T23:28:41.271Z info: info
+2016-05-20T23:28:41.272Z error: error
+2016-05-20T23:28:41.272Z info: Application startup
+2016-05-20T23:28:41.273Z info: server listening on port 9000
+2016-05-20T23:28:42.719Z debug: debug
+2016-05-20T23:28:42.724Z info: info
+2016-05-20T23:28:42.725Z info: Application startup
+2016-05-20T23:28:42.725Z error: error
+2016-05-20T23:28:42.726Z info: server listening on port 9000
+2016-05-20T23:28:49.273Z info: Application startup
+2016-05-20T23:28:49.278Z info: server listening on port 9000
+2016-05-20T23:29:04.748Z info: GET: /api/status/IntegrationService.Build/success
+2016-05-20T23:29:04.750Z info: New project: IntegrationService.Build
+2016-05-20T23:29:05.296Z debug: From Powershell: USB HID I/O Command Application v2.0 Options: V
+TID =0 SID=0 Maj=101 Min=20 LSB=7 MSB=0 HID0=0 HID1=0 HID2=0 HID3=0
+DExt0=0 DExt1=0 DExt2=0 DExt3=0 DExt4=0 DExt5=0 DExt6=0 DExt7=0
+Device Found: \\?\hid#vid_0fc5&pid_b080&col01#6&2cba372a&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+DeviceType:2  Serial#:26928  Version:46  DateCode:3/30/2015
+Command completed.
+
+2016-05-20T23:29:05.405Z debug: From Powershell: USB HID I/O Command Application v2.0 Options: V
+TID =0 SID=0 Maj=101 Min=12 LSB=0 MSB=7 HID0=0 HID1=0 HID2=0 HID3=0
+DExt0=0 DExt1=0 DExt2=0 DExt3=0 DExt4=0 DExt5=0 DExt6=0 DExt7=0
+Device Found: \\?\hid#vid_0fc5&pid_b080&col01#6&2cba372a&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+DeviceType:2  Serial#:26928  Version:46  DateCode:3/30/2015
+Command completed.
+
+2016-05-20T23:29:05.517Z debug: From Powershell: USB HID I/O Command Application v2.0 Options: V
+TID =0 SID=0 Maj=101 Min=12 LSB=1 MSB=0 HID0=0 HID1=0 HID2=0 HID3=0
+DExt0=0 DExt1=0 DExt2=0 DExt3=0 DExt4=0 DExt5=0 DExt6=0 DExt7=0
+Device Found: \\?\hid#vid_0fc5&pid_b080&col01#6&2cba372a&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+DeviceType:2  Serial#:26928  Version:46  DateCode:3/30/2015
+Command completed.
+
+2016-05-20T23:29:05.564Z debug: Powershell script finished
+2016-05-20T23:29:13.564Z info: Application startup
+2016-05-20T23:29:13.568Z info: server listening on port 9000
+2016-05-20T23:29:15.211Z info: GET: /api/status/IntegrationService.Build/success
+2016-05-20T23:29:15.213Z info: New project: IntegrationService.Build
+2016-05-20T23:29:20.197Z info: GET: /api/status/IntegrationService.Build/success
+2016-05-20T23:29:27.593Z info: GET: /api/projects

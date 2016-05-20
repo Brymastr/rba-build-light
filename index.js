@@ -5,7 +5,7 @@ var request = require('request');
 var log = require('./logger');
 
 var app = express();
-log.logLevel = 'debug';
+log.logLevel = 'info';
 
 // CORS
 app.use(function(req, res, next) {
@@ -18,7 +18,7 @@ app.use(function(req, res, next) {
 var routes = require('./routes')();
 
 app.use('*', function(req, res, next) {
-  log.log('info', req.method + ': ' + req.baseUrl);
+  log.info(req.method + ': ' + req.baseUrl);
   next();
 });
 
@@ -44,7 +44,6 @@ function boomiJob() {
     function(err, response, body) {
       try {
         body = JSON.parse(body);
-        
       } catch(err) {
         body = err;  
       } finally {
@@ -58,7 +57,8 @@ function boomiJob() {
 
 let port = 9000
 http.createServer(app).listen(port, function() {
-  console.log("server listening on port " + port);
+  log.info('Application startup');
+  log.info('server listening on port ' + port);
 });
 
 // schedule.scheduleJob('0 10 * * * *', function() {

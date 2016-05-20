@@ -5,10 +5,10 @@ var log = require('./logger');
 
 exports.updateProjectStatus = function(project, status) {
   if(this.projects.length == 0) {
-    log.log('info', 'New project: ' + project);
+    log.info('New project: ' + project);
     this.projects.push({
-      "title": project,
-      "status": status
+      'title': project,
+      'status': status
     });
   }
   for(x in this.projects) {
@@ -17,7 +17,7 @@ exports.updateProjectStatus = function(project, status) {
       break;
     }
     if(x == this.projects.length - 1) {
-      log.log('info', 'New project: ' + this.projects[x].title);
+      log.info('New project: ' + this.projects[x].title);
       this.projects.push({
         "title": project,
         "status": status

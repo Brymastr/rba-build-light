@@ -5,15 +5,15 @@ exports.changeColor = function(color) {
   var child = spawn("powershell.exe", ["./lightcontrol.ps1 " + color]);
   
   child.stdout.on('data', function(data) {
-    // console.log('From Powershell: ' + data);
+    log.debug('From Powershell: ' + data);
   });
   
   child.stderr.on("data", function(data) {
-    log.log('error', "Powershell Errors: " + data);
+    log.error('Powershell Errors: ' + data);
   });
   
   child.on('exit', function() {
-    // console.log('Powershell script finished');
+    log.debug('Powershell script finished');
   });
   
   child.stdin.end();
