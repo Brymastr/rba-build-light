@@ -1,30 +1,42 @@
-var projects = []; // pass, fail
+this.projects = []; // pass, fail
 
 var light = require('./lightModule')
 
 exports.updateProjectStatus = function(project, status) {
-  for(x in projects) {
-    if(projects[x].title == project) {
-      projects[x].status = status;
+  if(this.projects.length == 0) {
+    console.log('New project: ' + project);
+    this.projects.push({
+      "title": project,
+      "status": status
+    });
+  }
+  for(x in this.projects) {
+    if(this.projects[x].title == project) {
+      this.projects[x].status = status;
       break;
     }
-    if(x == projects.length) {
-      projects.push({
+    if(x == this.projects.length - 1) {
+      console.log('New project: ' + this.projects[x].title);
+      this.projects.push({
         "title": project,
         "status": status
-      })
+      });
     }
   }
 }
 
-function changeLight() {
-  for(x in projects) {
-    if(projects[x].status === 'fail') {
-      // go red
-      break;
+exports.changeLight = function(done) {
+  console.log(this.projects);
+  
+  for(x in this.projects) {
+    if(this.projects[x].status === 'fail') {
+      light.changeColor('red');
+      return done('fail');
     }
-    if(x == projects.length) {
-      // go green
+    if(x == this.projects.length - 1) {
+      light.changeColor('green');
+      return done('pass');
     }
   }
+  return done('no projects');
 }

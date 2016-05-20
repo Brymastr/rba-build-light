@@ -32,8 +32,6 @@ function greenOn(){
 	}
 }
 
-Write-host "yolo"
-
 allOff
 if($color -eq "green") {
 	greenOn

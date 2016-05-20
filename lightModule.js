@@ -1,6 +1,6 @@
 var spawn = require("child_process").spawn,child;
 
-exports.changeColor = function(color, done) {
+exports.changeColor = function(color) {
   var child = spawn("powershell.exe", ["./lightcontrol.ps1 " + color]);
   
   child.stdout.on('data', function(data) {
@@ -17,5 +17,4 @@ exports.changeColor = function(color, done) {
   
   child.stdin.end();
   
-  return done();
 }

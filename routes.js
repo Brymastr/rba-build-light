@@ -1,35 +1,28 @@
 var express = require('express');
 var projectModule = require('./projectModule');
-var lightModule = require('./lightModule');
+var light = require('./lightModule');
 
 module.exports = function() {
   
   var router = express.Router();
   
-  router.route('/test/changeColor/:color')
-    .all(function(req, res) {
-      lightModule.changeColor(req.params.color, function() {
-        res.send('Changed color to ' + req.params.color);
-      });
+  router.route('/status/:project/:status').all(function(req, res) {
+    projectModule.updateProjectStatus(req.params.project, req.params.status);
+    projectModule.changeLight(function(status) {
+     res.send(status);    
     });
+  });
   
-  router.route('/test')
-    .post(function(req, res) {
-      res.json(req);
-    })
+  router.route('/test/changeColor/:color').all(function(req, res) {
+    light.changeColor(req.params.color, function() {
+      res.send('Changed color to ' + req.params.color);
+    });
+  });
+    
+  router.route('/projects')
     .get(function(req, res) {
-      res.send("get");
+      res.json(projectModule.projects);
     });
-    
-  
-  
-  router.route('/status/:project/:status')
-    .all(function(req, res) {
-      projectModule.updateProjectStatus(req.params.project, request.params.status);
-      res.send("update status");
-    });
-    
-  
-    
+        
   return router;
 }
