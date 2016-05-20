@@ -1,55 +1,21 @@
-param([String]$color="green")
+param([String]$color = "green")
 
+function allOff() {
+	&{.\USBCMDAP V 0 0 101 20 7 0}
+	&{.\USBCMDAP V 0 0 101 12 0 7}
+}
 
-function allOff(){
-	if ($debug){Write-host "allOff"}else{
-		&{.\USBCMDAP V 0 0 101 20 7 0}
-		&{.\USBCMDAP V 0 0 101 12 0 7}
-	}
+function flameOn() {
+	&{.\USBCMDAP V 0 0 101 12 2 0}
 }
-function redOn() {
-	if ($debug){write-host "Red"}else{
-		&{.\USBCMDAP V 0 0 101 12 2 0}
-	}
-}
-function greenOn(){
-	if ($debug){write-host "Green"}else{
-		&{.\USBCMDAP V 0 0 101 12 1 0}
-	}
+
+function greenOn() {
+	&{.\USBCMDAP V 0 0 101 12 1 0}
 }
 
 allOff
 if($color -eq "green") {
 	greenOn
 } else {
-	redOn
+	flameOn
 }
-
-# #:: MAIN
-# Set-Location "C:\USBLight"
-# Start-Transcript -Path ".\redLighGreenLight.log" -Append -Force;
-# Write-host "The Date $(Get-Date -format 'u')"
-
-# allOff
-# blinkBlue
-# foreach ($jobName in $jobs) {
-# 	$doc.Load("https://dc1vplbld01.rbauction.net/jenkins/job/${jobName}/lastBuild/api/xml")
-# 	$buildResult = $doc.freeStyleBuild.result
-# 	$buildNumber = $doc.freeStyleBuild.number
-# 	if ($buildResult -ne "SUCCESS"){
-# 		$result=0
-# 	}
-# 	Write-Host $jobName $buildNumber $buildResult $result "`r`n"
-# }
-
-# if (-Not (testTimedBoomi)) {
-# 	$result=0
-# }
-
-# allOff
-# if ($result){
-# 	greenOn
-# }
-# else {
-# 	redOn
-# }
