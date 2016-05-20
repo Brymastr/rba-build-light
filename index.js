@@ -15,19 +15,13 @@ app.use(function(req, res, next) {
 // Express routing
 var routes = require('./routes')();
 
+app.use('*', function(req, res, next) {
+  console.log(req.method + ': ' + req.baseUrl);
+  next();
+});
 app.use('/api', routes);
 
 let port = 9000
-
-http.createServer(app).listen(port, function() {
-  console.log("server listening on port " + port);
-  boomiJob();
-});
-
-schedule.scheduleJob('0 10 * * * *', function() {
-  boomijob();
-  console.log('Boomi job ran');
-});
 
 function boomiJob() {
   // all the stuff for boomi that the old ps1 script did
@@ -60,3 +54,12 @@ function boomiJob() {
       }
   });
 }
+
+http.createServer(app).listen(port, function() {
+  console.log("server listening on port " + port);
+});
+
+// schedule.scheduleJob('0 10 * * * *', function() {
+//   boomijob();
+//   console.log('Boomi job ran');
+// });
