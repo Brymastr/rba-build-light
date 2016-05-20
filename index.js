@@ -59,6 +59,4 @@ function boomiJob() {
           console.log('error');
       }
   });
- 
-  
 }

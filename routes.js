@@ -1,4 +1,5 @@
 var express = require('express');
+var projectModule = require('./projectModule');
 
 module.exports = function() {
   
@@ -10,6 +11,14 @@ module.exports = function() {
     })
     .get(function(req, res) {
       res.send("get");
+    });
+    
+  
+  
+  router.route('/status/:project/:status')
+    .all(function(req, res) {
+      projectModule.updateProjectStatus(req.params.project, request.params.status);
+      res.send('update status');
     });
     
   return router;
