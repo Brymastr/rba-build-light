@@ -1,6 +1,7 @@
 var express = require('express');
 var projectModule = require('./projectModule');
 var light = require('./lightModule');
+var log = require('./logger');
 
 module.exports = function() {
   
@@ -9,7 +10,7 @@ module.exports = function() {
   router.route('/status/:project/:status').all(function(req, res) {
     projectModule.updateProjectStatus(req.params.project, req.params.status);
     projectModule.changeLight(function(status) {
-     res.send(status);    
+      res.send(status);    
     });
   });
   
@@ -21,6 +22,7 @@ module.exports = function() {
     
   router.route('/projects')
     .get(function(req, res) {
+      log.log('debug', projectModule.projects)
       res.json(projectModule.projects);
     });
         

@@ -2,8 +2,10 @@ var express = require('express');
 var http = require('http');
 var schedule = require('node-schedule');
 var request = require('request');
+var log = require('./logger');
 
 var app = express();
+log.logLevel = 'debug';
 
 // CORS
 app.use(function(req, res, next) {
@@ -16,12 +18,11 @@ app.use(function(req, res, next) {
 var routes = require('./routes')();
 
 app.use('*', function(req, res, next) {
-  console.log(req.method + ': ' + req.baseUrl);
+  log.log('info', req.method + ': ' + req.baseUrl);
   next();
 });
-app.use('/api', routes);
 
-let port = 9000
+app.use('/api', routes);
 
 function boomiJob() {
   // all the stuff for boomi that the old ps1 script did
@@ -55,6 +56,7 @@ function boomiJob() {
   });
 }
 
+let port = 9000
 http.createServer(app).listen(port, function() {
   console.log("server listening on port " + port);
 });

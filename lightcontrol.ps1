@@ -1,19 +1,5 @@
 param([String]$color="green")
 
-# #:: VARIABLES
-# $doc = New-Object System.Xml.XmlDocument
-# $result=1
-
-# ###PUT JOBS IN HERE
-# $jobs = @(
-# 	# "ASU.Build",
-# 	# "ASU.PDQDeploy",
-# 	"IntegrationService.Build",
-# 	"IntegrationService.PDQDeploy",
-# 	"Salesite.ALLINONE13.Installer",
-# 	"Salesite.Net.ProformaInvoice.Build",
-# 	"Salesite.Net.SSCDM.Build",
-# 	"Salesite.VB6.Build")
 
 function allOff(){
 	if ($debug){Write-host "allOff"}else{

@@ -1,0 +1,1 @@
+only used to keep this directory not empty so it's in version control and so logger can write to it without creating it so that the docker volume exists before writing
