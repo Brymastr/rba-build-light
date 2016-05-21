@@ -6,3 +6,21 @@ services:
     container_name: usblight
     ports:
       - '9000:80'
+    links:
+      - db
+    environment:
+      - USB_LIGHT_API_PORT=80
+      - USB_LIGHT_LOG_LEVEL=info
+      - USB_LIGHT_BOOMI_TIMEOUT=20000
+      - USB_LIGHT_BOOMI_URL=https://cc1.sfdctest.rbaenv.com:9443/projTEST/ws/simple/getBoomiStatus
+      - USB_LIGHT_BOOMI_USERNAME=projTEST@ritchiebrosauctioneers-Z36KY7
+      - USB_LIGHT_BOOMI_PASSWORD=6123765f-3fd3-482b-a73c-7997b00cd298
+      - USB_LIGHT_DB_CONN=mongodb://db/usblight
+  
+  db:
+    image: 'mongo:latest'
+    container_name: db
+    volumes:
+      - /volumes/usblight/db:/data/db
+    ports:
+      - '27017:27017'
