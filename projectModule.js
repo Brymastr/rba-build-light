@@ -4,6 +4,7 @@ var light = require('./lightModule')
 var log = require('./logger');
 
 exports.updateProjectStatus = function(project, status) {
+  
   if(this.projects.length == 0) {
     log.info('New project: ' + project);
     this.projects.push({
@@ -24,6 +25,8 @@ exports.updateProjectStatus = function(project, status) {
       });
     }
   }
+  
+  log.info((status === 'pass' ? 'PASS: ' : 'FAIL: ') + project);
 }
 
 exports.changeLight = function(done) {
