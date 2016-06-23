@@ -31,12 +31,13 @@ exports.updateProjectStatus = function(project, status) {
 
 exports.changeLight = function(done) {
   for(x in this.projects) {
-    if(this.projects[x].status === 'fail') {
-      light.changeColor('red');
-      return done('fail');
+    console.log(x)
+    if(this.projects[x].status == 'fail') {
+      light.changeColor('red', function(){});
+      return done('fail');        
     }
     if(x == this.projects.length - 1) {
-      light.changeColor('green');
+      light.changeColor('green', function(){});
       return done('pass');
     }
   }

@@ -9,14 +9,20 @@ module.exports = function() {
   
   router.route('/status/:project/:status').all(function(req, res) {
     projectModule.updateProjectStatus(req.params.project, req.params.status);
+    var set = false;    
     projectModule.changeLight(function(status) {
-      res.send(status);    
+      if(!set)      
+        res.send(status);  
+      set = true;  
     });
   });
   
   router.route('/test/changeColor/:color').all(function(req, res) {
+    var set = false;
     light.changeColor(req.params.color, function() {
-      res.send('Changed color to ' + req.params.color);
+      if(!set)
+        res.send('Changed color to ' + req.params.color);
+      set = true;
     });
   });
     

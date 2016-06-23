@@ -3,12 +3,11 @@ var http = require('http');
 var schedule = require('node-schedule');
 var mongoose = require('mongoose');
 var log = require('./logger');
-var jobs = require('./jobs');
 
 var app = express();
 const port = process.env.USB_LIGHT_API_PORT || 9000;
 const db = process.env.USB_LIGHT_DB_CONN;
-log.logLevel = process.env.USB_LIGHT_LOG_LEVEL || 'info';
+log.logLevel = process.env.USB_LIGHT_LOG_LEVEL || 'debug';
 
 // CORS
 app.use(function(req, res, next) {
@@ -31,7 +30,6 @@ if(db != undefined) {
   });  
 }
 
-
 // Express routing
 var routes = require('./routes')();
 app.use('/api', routes);
@@ -40,10 +38,4 @@ app.use('/api', routes);
 http.createServer(app).listen(port, function() {
   log.info('Application startup');
   log.info('server listening on port ' + port);
-});
-
-// Schedule recurring jobs
-schedule.scheduleJob('0 * * * * *', function() {
-  jobs.boomiJob();
-  log.debug('Boomi job ran');
 });

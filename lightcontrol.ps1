@@ -13,9 +13,15 @@ function greenOn() {
 	&{.\USBCMDAP V 0 0 101 12 1 0}
 }
 
+function yellowOn() {
+	&{.\USBCMDAP V 0 0 101 12 4 0}
+}
+
 allOff
 if($color -eq "green") {
 	greenOn
+} elseif($color -eq "yellow") {
+	yellowOn
 } else {
 	flameOn
 }
