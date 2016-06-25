@@ -1,18 +1,21 @@
 var express = require('express');
 var http = require('http');
 var schedule = require('node-schedule');
+var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var log = require('./logger');
 
 var app = express();
+app.use(bodyParser.json());
 const port = process.env.USB_LIGHT_API_PORT || 9000;
 const db = process.env.USB_LIGHT_DB_CONN;
-log.logLevel = process.env.USB_LIGHT_LOG_LEVEL || 'debug';
+log.logLevel = process.env.USB_LIGHT_LOG_LEVEL || 'info';
 
 // CORS
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE");
   next();
 });
 

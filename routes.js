@@ -16,8 +16,8 @@ module.exports = function() {
       set = true;  
     });
   });
-  
-  router.route('/test/changeColor/:color').all(function(req, res) {
+    
+  router.route('/manual /changeColor/:color').all(function(req, res) {
     var set = false;
     light.changeColor(req.params.color, function() {
       if(!set)
@@ -30,6 +30,22 @@ module.exports = function() {
     .get(function(req, res) {
       log.debug(projectModule.projects)
       res.json(projectModule.projects);
+    })
+    .delete(function(req, res) {
+      log.debug('deleted project list');
+      projectModule.projects = [];
+      res.sendStatus(200);
+    })
+    .put(function(req, res) {
+      log.debug('batch update projects');
+      projectModule.projects = req.body;
+      console.log(req.body)
+      var set = false;    
+      projectModule.changeLight(function() {
+        if(!set)      
+          res.sendStatus(200);  
+        set = true;  
+      });
     });
         
   return router;
