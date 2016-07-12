@@ -17,7 +17,7 @@ module.exports = function() {
     });
   });
     
-  router.route('/manual /changeColor/:color').all(function(req, res) {
+  router.route('/manual/changeColor/:color').all(function(req, res) {
     var set = false;
     light.changeColor(req.params.color, function() {
       if(!set)
